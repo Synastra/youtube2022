@@ -21,24 +21,24 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">Learning Analytical Portal</span>
+          <span className="logo">lamadmin</span>
         </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
-          <p className="title">Overview</p>
+          <p className="title">MAIN</p>
           <Link to="/" style={{ textDecoration: "none" }}>
           <li>
             <DashboardIcon className="icon" />
-            <span>Overview</span>
+            <span>Dashboard</span>
           </li>
           </Link>
-          <p className="title">Moodle</p>
-          <Link to="/students" style={{ textDecoration: "none" }}>
+          <p className="title">LISTS</p>
+          <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
-              <span>Students</span>
+              <span>Users</span>
             </li>
           </Link>
           <Link to="/products" style={{ textDecoration: "none" }}>
@@ -55,10 +55,10 @@ const Sidebar = () => {
             <LocalShippingIcon className="icon" />
             <span>Delivery</span>
           </li>
-          <p className="title">NoSQL</p>
+          <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />
-            <span>Students</span>
+            <span>Stats</span>
           </li>
           <li>
             <NotificationsNoneIcon className="icon" />
