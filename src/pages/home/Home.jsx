@@ -13,9 +13,9 @@ const Home = () => {
       <div className="homeContainer">
         <Navbar />
         <div className="widgets">
-          <Widget type="user" />
-          <Widget type="order" />
-          <Widget type="earning" />
+          <Widget type="students" />
+          <Widget type="classes" />
+          <Widget type="attendance rate" />
           <Widget type="balance" />
         </div>
         <div className="charts">
@@ -23,7 +23,7 @@ const Home = () => {
           <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
         </div>
         <div className="listContainer">
-          <div className="listTitle">Latest Transactions</div>
+          <div className="listTitle">Latest Module Attendance</div>
           <Table />
         </div>
       </div>

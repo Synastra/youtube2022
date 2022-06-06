@@ -4,6 +4,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import { Link } from "react-router-dom";
 
 const Widget = ({ type }) => {
   let data;
@@ -13,11 +14,11 @@ const Widget = ({ type }) => {
   const diff = 20;
 
   switch (type) {
-    case "user":
+    case "students":
       data = {
-        title: "USERS",
+        title: "Total Students",
         isMoney: false,
-        link: "See all users",
+        link: "students",
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -29,11 +30,11 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "order":
+    case "classes":
       data = {
-        title: "ORDERS",
+        title: "Total Classes",
         isMoney: false,
-        link: "View all orders",
+        link: "View all class",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"
@@ -45,11 +46,11 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "earning":
+    case "attendance rate":
       data = {
-        title: "EARNINGS",
+        title: "Attendance",
         isMoney: true,
-        link: "View net earnings",
+        link: "View absent students",
         icon: (
           <MonetizationOnOutlinedIcon
             className="icon"
@@ -85,7 +86,11 @@ const Widget = ({ type }) => {
         <span className="counter">
           {data.isMoney && "$"} {amount}
         </span>
-        <span className="link">{data.link}</span>
+        <Link to={data.link} style={{ textDecoration: "none" }}>
+          <li>
+            <span className="link">{data.link}</span>
+          </li>
+          </Link>      
       </div>
       <div className="right">
         <div className="percentage positive">
