@@ -18,8 +18,8 @@ function App() {
         <Routes>
           <Route path="/">
             <Route index element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="users">
+            <Route path="login" element={<Login />} />  {/* element = page , page = define what you want to name the link */}
+            <Route path="students">
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />
               <Route
