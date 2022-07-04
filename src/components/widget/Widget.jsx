@@ -62,7 +62,7 @@ const Widget = ({ type }) => {
     case "balance":
       data = {
         title: "BALANCE",
-        isMoney: true,
+        isMoney: false,
         link: "See details",
         icon: (
           <AccountBalanceWalletOutlinedIcon
@@ -84,7 +84,7 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {data.isMoney && "$"} {amount}
+          {amount} {data.isMoney && "%"} 
         </span>
         <Link to={data.link} style={{ textDecoration: "none" }}>
           <li>

@@ -1,4 +1,4 @@
-import "./table.scss";
+import "./Individualtable.scss";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -20,16 +20,6 @@ const List = () => {
       status: "Approved",
     },
     {
-      id: 1,
-      product: "Machine Learning",
-      img: "https://m.media-amazon.com/images/I/31JaiPXYI8L._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Michael Doe",
-      date: "1 March",
-      amount: "95%",
-      method: "Online Payment",
-      status: "Pending",
-    },
-    {
       id: 2,
       product: "Data Vizualisation",
       img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
@@ -49,16 +39,6 @@ const List = () => {
       method: "Online",
       status: "Approved",
     },
-    {
-      id: 1,
-      product: "Machine Learning",
-      img: "https://m.media-amazon.com/images/I/81hH5vK-MCL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Harold Carol",
-      date: "1 March",
-      amount: "90%",
-      method: "Online",
-      status: "Pending",
-    },
   ];
   return (
     <TableContainer component={Paper} className="table">
@@ -67,7 +47,6 @@ const List = () => {
           <TableRow>
             <TableCell className="tableCell">Course ID</TableCell>
             <TableCell className="tableCell">Course Name</TableCell>
-            <TableCell className="tableCell">Student</TableCell>
             <TableCell className="tableCell">Attendance Rate</TableCell>
           </TableRow>
         </TableHead>
@@ -81,7 +60,6 @@ const List = () => {
                   {row.product}
                 </div>
               </TableCell>
-              <TableCell className="tableCell">{row.customer}</TableCell>
               <TableCell className="tableCell">{row.amount}</TableCell>
               <TableCell className="tableCell">
                 {/*<span className={`status ${row.status}`}>{row.status}</span>*/}

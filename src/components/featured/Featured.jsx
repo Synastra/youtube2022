@@ -1,52 +1,68 @@
 import "./featured.scss";
+import axios from 'axios';
+import { useState,useEffect } from "react";
 
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area } from 'recharts';
 
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
 const Featured = ({ aspect, title }) => {
+  const [data, setData] = useState();
+  useEffect(() => {
+  axios
+  .get(
+    `http://localhost:5000/grades`,
+    {},
+    { headers: { 'Content-Type': 'application/json' } }
+  )
+  .then((response) => {
+    let machineLearning= 0;
+    let dataViz = 0;
+    let maths = 0;
+    let mlcounter = 0;
+    let dvcounter = 0;
+    let mcounter = 0;
+    for (let i = 0; i < response.data.length; i++) {
+      if(response.data[i].itemid == 1){
+          machineLearning = machineLearning + response.data[i].finalgrade
+          mlcounter++
+      }
+      if(response.data[i].itemid == 2){
+          dataViz = dataViz + response.data[i].finalgrade
+          dvcounter++
+      }
+      if(response.data[i].itemid == 3){
+          maths = maths + response.data[i].finalgrade
+          mcounter++
+      }
+    }
+    const tempdata = [
+      {
+        name: 'Machine Learning',
+        uv: machineLearning/mlcounter,
+        pv: 2400,
+        amt: 2400,
+      },
+      {
+        name: 'Data Viz',
+        uv: dataViz/dvcounter,
+        pv: 1398,
+        amt: 2210,
+      },
+      {
+        name: 'Maths',
+        uv: maths/mcounter,
+        pv: 9800,
+        amt: 2290,
+      },
+    ];
+    console.log(tempdata)
+    setData(tempdata)
+ 
+    
+  })
+  .catch((error) => {
+    console.log('response: ', error.response.data.message);
+  });
+  }, []);
   return (
     <div className="chart">
       <div className="title">{title}</div>
